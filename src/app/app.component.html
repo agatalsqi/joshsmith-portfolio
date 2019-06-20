@@ -1,4 +1,29 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <div>
+    <a href="{{ profile.githubUrl }}">
+      <img height=40 alt="img" src="{{ profile.photoUrl }}">
+    </a>
+    <div>
+      <p>{{ profile.name }}</p>
+      <a href="{{ profile.githubUrl }}">GitHub</a>
+      <p>{{ profile.position }}</p>
+    </div>
+  </div>
+  <hr>
+  <h2>Bio</h2>
+  <h3>Experience</h3>
+  <ul *ngIf="projects">
+    <li *ngFor="let project of projects">
+      <p>{{ project.name }} - {{ project.year }} </p>
+    </li>
+  </ul>
+  <h2>Projects</h2>
+  <ul *ngIf="projects">
+    <li *ngFor="let project of projects">
+      <a href="{{ project.link }}">{{ project.name }}</a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet></router-outlet>
